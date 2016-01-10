@@ -1,0 +1,32 @@
+= form_for(resource, as: resource_name, url: user_path(resource_name), html: { class: "container user-new", method: :patch }) do |f|
+  .col-md-8.col-md-offset-2
+    %header.row.user-nav.row
+      .col-md-12
+        %h2 Edit Profile
+        .user-name_image.row
+          .user-name.col-md-10
+            = f.text_field :name, id: 'user_username'
+          .user-image.col-md-2{:style => 'background-image: url();'}
+            %button.btn.btn-primary Change image
+            = f.file_field :photo, {id: 'upload_avater'}
+        %h4 email
+        = f.email_field :email, class: 'user-email', id: 'user_email'
+        %h4 password
+        = f.password_field :password, class: 'user-password', id: 'user_password', autocomplete: "off", placeholder: 'パスワードを入力'
+      .col-md-12
+        %h4 Member of
+        .user-user-member.row
+          .user-name.col-md-12
+            = f.text_field :organization, placeholder: "所属組織"
+        %h4 Profile
+        .user-user-profile.row
+          .user-name.col-md-12
+            = f.text_area :profile, size: "10x4"
+        %h4 Works
+        .user-name_image.row
+          .user-name.col-md-12
+            = f.text_area :works, size: "10x4"
+    .row.text-center.user-btn
+      %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Save
+
+
