@@ -12,6 +12,7 @@
 - user_id: integer
 - catchcopy: string
 - concept: text
+- title: string
 
 ## Prototype_images
 - prototype_id: integer
@@ -23,7 +24,8 @@
 - user_id: integer
 
 ## Tags
-- tag: string
+- prototype_id: integer
+- tag_name: string
 
 ## Comments
 - user_id: integer
