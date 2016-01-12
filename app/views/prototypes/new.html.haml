@@ -1,0 +1,40 @@
+
+= form_for(@prototype, html: {class: "container proto-new"}) do |f|
+  .col-md-8.col-md-offset-2
+    %header.row.user-nav.row
+      .col-md-12
+        =f.text_field :title, placeholder: "Title", class: "proto-new-title"
+    .row
+      .col-md-12
+        .cover-image-upload
+          = f.fields_for :prototype_images do |p|
+            = p.file_field :prototype_image, status:"0"
+      .col-md-12
+        %ul.proto-sub-list.list-group
+          %li.list-group-item.col-md-4
+            .image-upload
+              / = p.file_field :image, status: "1"
+          %li.list-group-item.col-md-4
+            .image-upload
+              / = p.file_field :image, status: "1"
+          %li.list-group-item.col-md-4
+            .image-upload-plus
+              %span +
+    .row.proto-description
+      .col-md-12
+        =f.text_field :catchcopy, :placeholder => "Catch Copy"
+      .col-md-12
+        =f.text_area :concept, size: "30x4", placeholder: "Concept"
+      .col-md-12
+        %h4 Tag List
+        .row
+        = f.fields_for :tags do |t|
+          .col-md-3
+            =t.text_field :tag_name, :placeholder => "例）web design"
+          / .col-md-3
+          /   =t.text_field :tag_name, :placeholder => "UI"
+          / .col-md-3
+          /   =t.text_field :tag_name, :placeholder => "Application"
+    .row.text-center.proto-btn
+      / %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Publish
+      = f.submit "送信", :class => 'btn btn-lg btn-primary btn-block'
