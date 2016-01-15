@@ -19,7 +19,7 @@
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "/users/new", :role => "button"}
-              User name
+              = current_user.name
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
               %li
