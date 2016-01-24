@@ -24,8 +24,10 @@
 
 ## Tags
 - tag: string
+- prototype_id: integer
+- tag_name: string
 
 ## Comments
 - user_id: integer
 - prototype_id: integer
-- comment: text
+- text: text
