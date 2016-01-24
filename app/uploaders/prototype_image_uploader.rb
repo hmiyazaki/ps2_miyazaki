@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class ImageUploader < CarrierWave::Uploader::Base
+class PrototypeImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -9,8 +9,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
-
-  # process convert: 'jpg'
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -33,19 +31,21 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  # thumb バージョン(width 400px x height 200px)
-  version :thumb do
-    process :resize_to_fit => [400, 200]
-  end
+  # Create different versions of your uploaded files:
+  # version :thumb do
+  #   process :resize_to_fit => [50, 50]
+  # end
 
-  # 許可する画像の拡張子
-  def extension_white_list
-    %w(jpg jpeg gif png)
-  end
+  # Add a white list of extensions which are allowed to be uploaded.
+  # For images you might use something like this:
+  # def extension_white_list
+  #   %w(jpg jpeg gif png)
+  # end
 
-  # 変換したファイルのファイル名の規則
-  def filename
-    "#{Time.now.strftime('%Y%m%d%H%M%S')}.jpg"
-  end
+  # Override the filename of the uploaded files:
+  # Avoid using model.id or version_name here, see uploader/store.rb for details.
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
 
 end

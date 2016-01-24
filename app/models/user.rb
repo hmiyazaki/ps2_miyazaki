@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :photo, ImageUploader
 
+  has_many :prototypes
+
 end
