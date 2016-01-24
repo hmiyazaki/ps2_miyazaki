@@ -7,19 +7,20 @@
       =f.fields_for :prototype_images do |p|
         .col-md-12
           .cover-image-upload
+            %img{id: "main_preview", src:""}
+            = p.file_field :images
             = p.hidden_field :status, value: "0"
-            = p.file_field :image
-        / .col-md-12
-        /   %ul.proto-sub-list.list-group
-        /     %li.list-group-item.col-md-4
-        /       .image-upload
-        /         = p.file_field :prototype_image, status: "1"
-        /     %li.list-group-item.col-md-4
-        /       .image-upload
-        /         = p.file_field :prototype_image, status: "1"
-        /     %li.list-group-item.col-md-4
-        /       .image-upload-plus
-        /         %span +
+        .col-md-12
+          %ul.proto-sub-list.list-group
+            %li.list-group-item.col-md-4
+              .image-upload
+                = p.file_field :prototype_image, status: "1"
+            %li.list-group-item.col-md-4
+              .image-upload
+                = p.file_field :prototype_image, status: "1"
+            %li.list-group-item.col-md-4
+              .image-upload-plus
+                %span +
     .row.proto-description
       .col-md-12
         =f.text_field :catchcopy, :placeholder => "Catch Copy"
@@ -33,3 +34,4 @@
               =t.text_field :tag_name, :placeholder => "例）web design"
     .row.text-center.proto-btn
       = f.submit "送信", :class => 'btn btn-lg btn-primary btn-block'
+      
