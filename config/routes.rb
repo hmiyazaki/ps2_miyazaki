@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  # resources :users, only: [:update]
+  devise_for :users
   resources :users, only:[:update]
   resources :prototypes
-  devise_for :users#, :controllers => {
-#   :sessions => 'users/sessions',
-#   :registrations => 'users/registrations'
-# }
+
 
 root 'top#index'
 
