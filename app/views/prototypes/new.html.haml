@@ -7,17 +7,17 @@
       =f.fields_for :prototype_images do |p|
         .col-md-12
           .cover-image-upload
-            %img{id: "main_preview", src:""}
-            = p.file_field :images
+            = p.file_field :image
             = p.hidden_field :status, value: "0"
+            %img{id: "main_preview", src:""}
         .col-md-12
           %ul.proto-sub-list.list-group
             %li.list-group-item.col-md-4
               .image-upload
-                = p.file_field :prototype_image, status: "1"
+                = p.file_field :image, status: "1"
             %li.list-group-item.col-md-4
               .image-upload
-                = p.file_field :prototype_image, status: "1"
+                = p.file_field :image, status: "1"
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
@@ -29,9 +29,12 @@
       .col-md-12
         %h4 Tag List
         .row
-          = f.fields_for :tags do |t|
-            .col-md-3
-              =t.text_field :tag_name, :placeholder => "例）web design"
+          .col-md-3
+            = text_field_tag "prototype[tag][]", "", placeholder: "Web Design"
+          .col-md-3
+            = text_field_tag "prototype[tag][]", "", placeholder: "UI"
+          .col-md-3
+            = text_field_tag "prototype[tag][]", "", placeholder: "Application"
     .row.text-center.proto-btn
       = f.submit "送信", :class => 'btn btn-lg btn-primary btn-block'
       
