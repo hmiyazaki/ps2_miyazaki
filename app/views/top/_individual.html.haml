@@ -7,11 +7,13 @@
         = individual.title
         .proto-meta
           .proto-user
-            = link_to current_user.name, "users/#{individual.user.id}"
+            = link_to individual.user.name, "users/#{individual.user.id}"
           .proto-posted
             = individual.updated_at
         %ul.proto-tag-list.list-inline
           %li 
-            %a{:href => "#", :class => "btn btn-default"} iPad
+            = link_to individual.tags.find_by(prototype_id: individual.id).tag_name, "#", class: "btn btn-default"
           %li 
-            %a{:href => "#", :class => "btn btn-default"} wireframe
+            = link_to individual.tags.find_by(prototype_id: individual.id).tag_name, "#", class: "btn btn-default"
+          %li 
+            = link_to individual.tags.find_by(prototype_id: individual.id).tag_name, "#", class: "btn btn-default"
