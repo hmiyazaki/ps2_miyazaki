@@ -11,9 +11,7 @@
           .proto-posted
             = individual.updated_at
         %ul.proto-tag-list.list-inline
-          %li 
-            = link_to individual.tags.find_by(prototype_id: individual.id).tag_name, "#", class: "btn btn-default"
-          %li 
-            = link_to individual.tags.find_by(prototype_id: individual.id).tag_name, "#", class: "btn btn-default"
-          %li 
-            = link_to individual.tags.find_by(prototype_id: individual.id).tag_name, "#", class: "btn btn-default"
+          - individual.tag_list.each do |ele|
+            %li
+              = link_to ele, "#", class: "btn btn-default"
+
